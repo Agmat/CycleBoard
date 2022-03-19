@@ -12,6 +12,10 @@ export default defineConfig({
         find: '@',
         replacement: path.resolve(__dirname, 'src/'),
       },
+      {
+        find: '@mui/styled-engine',
+        replacement: '@mui/styled-engine-sc',
+      },
     ],
   },
 });
