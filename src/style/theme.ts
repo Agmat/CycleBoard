@@ -14,7 +14,11 @@ const theme = createTheme({
   typography: {
     fontFamily: 'Inter',
     h6: {
-      fontSize: '1rem',
+      fontSize: '15px',
+    },
+    subtitle1: {
+      fontSize: '14px',
+      fontWeight: '600',
     },
   },
 });

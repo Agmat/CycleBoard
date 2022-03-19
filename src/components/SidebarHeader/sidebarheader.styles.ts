@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Wrapper = styled.header`
   display: flex;
   justify-content: space-between;
+  margin-bottom: ${(props) => props.theme.spacing(2)};
 `;
 
 export const Avatar = styled.img`
