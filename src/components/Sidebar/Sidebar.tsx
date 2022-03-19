@@ -1,10 +1,14 @@
 import React from 'react';
 
+import SidebarHeader from '@/components/SidebarHeader';
+
+import * as S from './sidebar.styles';
+
 const Sidebar = () => {
   return (
-    <div style={{ backgroundColor: '#171618', flexBasis: '240px' }}>
-      <div>OKMEC</div>
-    </div>
+    <S.Wrapper>
+      <SidebarHeader />
+    </S.Wrapper>
   );
 };
 
