@@ -1,58 +1,61 @@
-import { faker } from '@faker-js/faker';
 import { ApolloServer } from 'apollo-server';
 
 import typeDefs from './schema';
+import { cards } from './static/cards';
 
-const boards = [
+const boardMenu = [
   {
-    name: '🎨 Design',
-    groups: [
+    name: 'Starred',
+    boards: [
       {
-        name: '🖼️ Framing',
-        cards: [
+        icon: '🎨',
+        name: 'Design',
+        groups: [
           {
-            description: faker.lorem.paragraphs(),
-            tags: [
-              { text: '🦋' },
-              {
-                text: `CYC-${faker.datatype.number(100)}`,
-              },
-              { text: 'Design', color: '#102DEA' },
-            ],
+            name: '🖼️ Framing',
+            cards: [cards[0]],
+          },
+          {
+            name: '🎨 In Design',
+            cards: [cards[1]],
+          },
+          {
+            name: '✏️ In Review',
+            cards: [cards[2]],
           },
         ],
       },
       {
-        name: '🎨 In Design',
-        cards: [
-          {
-            description: faker.lorem.paragraphs(),
-            tags: [
-              { text: '🐶' },
-              {
-                text: `CYC-${faker.datatype.number(100)}`,
-              },
-              { text: 'Design', color: '#102DEA' },
-            ],
-          },
-        ],
+        icon: '🦊',
+        name: 'Feedback 2.0',
       },
       {
-        name: '✏️ In Review',
-        cards: [
-          {
-            description: faker.lorem.paragraphs(),
-            tags: [
-              { text: '⛄' },
-              {
-                text: `CYC-${faker.datatype.number(100)}`,
-              },
-              { text: 'Design', color: '#102DEA' },
-            ],
-          },
-        ],
+        icon: '🖥️',
+        name: 'Roadmap tech',
+      },
+      {
+        icon: '🤖',
+        name: 'Github feedback',
+      },
+      {
+        icon: '⚛️',
+        name: 'Improvements',
+      },
+      {
+        icon: '🚀',
+        name: 'Bugs',
+      },
+      {
+        icon: '⌛',
+        name: 'Sprint 4',
       },
     ],
+  },
+  {
+    name: 'Run planning',
+  },
+  {
+    name: 'Boards',
   },
 ];
 
@@ -60,7 +63,7 @@ const boards = [
 // schema. This resolver retrieves books from the "books" array above.
 const resolvers = {
   Query: {
-    boards: () => boards,
+    boardMenus: () => boardMenu,
   },
 };
 

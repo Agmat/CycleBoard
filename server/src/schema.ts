@@ -2,6 +2,11 @@ import { gql } from 'apollo-server';
 
 const typeDefs = gql`
   # Your schema will go here
+  type Menu {
+    name: String!
+    boards: [Board]
+  }
+
   type Board {
     name: String!
     groups: [Group]
@@ -23,7 +28,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    boards: [Board]
+    boardMenus: [Menu]
   }
 `;
 
