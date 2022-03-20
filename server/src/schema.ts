@@ -27,11 +27,13 @@ const typeDefs = gql`
   }
 
   type Tag {
+    id: ID!
     text: String!
     color: String
   }
 
   type Query {
+    card(id: ID): Card
     boardMenus: [Menu!]!
     board(name: String!): Board
   }

@@ -4,6 +4,9 @@ query getBoardGroups($name: String!) {
         groups {
             id
             name
+            cards {
+                id
+            }
         }
     }
 }

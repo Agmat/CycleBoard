@@ -2,6 +2,7 @@ import { ApolloServer } from 'apollo-server';
 
 import typeDefs from './schema';
 import boards from './static/boards';
+import { cards } from './static/cards';
 
 const boardMenu = [
   {
@@ -23,6 +24,9 @@ const resolvers = {
     boardMenus: () => boardMenu,
     board: (parent: unknown, args: { name: string }) => {
       return boards.find((board) => board.name === args.name);
+    },
+    card: (parent: unknown, args: { id: string }) => {
+      return cards.find((card) => card.id === args.id);
     },
   },
 };
