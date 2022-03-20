@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
 
 import { CollapseButton } from '@/components/CollapseSidebar/collapsesidebar.styles';
@@ -8,7 +8,8 @@ import {
 } from '@/components/Sidebar/sidebar.styles';
 import { Wrapper as SidebarHeaderWrapper } from '@/components/SidebarHeader/sidebarheader.styles';
 
-export const SidbarElement = styled.div`
+// Split because sometime we want to have a SidebarElement that's not a div
+export const SidebarElementBaseCSS = css`
   display: flex;
   border-radius: 4px;
   align-items: center;
@@ -21,6 +22,10 @@ export const SidbarElement = styled.div`
     cursor: pointer;
     background-color: ${(props) => props.theme.palette.primary.light};
   }
+`;
+
+export const SidbarElement = styled.div`
+  ${SidebarElementBaseCSS}
 `;
 
 export const CollapsedOverride = createGlobalStyle`

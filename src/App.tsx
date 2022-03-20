@@ -1,6 +1,7 @@
 import './App.css';
 
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
 import Board from '@/components/Board';
 import Sidebar from '@/components/Sidebar';
@@ -9,7 +10,10 @@ function App() {
   return (
     <div style={{ display: 'flex' }}>
       <Sidebar />
-      <Board />
+      <Routes>
+        <Route path="/" element={<Board />} />
+        <Route path="/Design" element={<Board />} />
+      </Routes>
     </div>
   );
 }

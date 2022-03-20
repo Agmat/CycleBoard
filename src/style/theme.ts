@@ -20,6 +20,10 @@ const theme = createTheme({
       fontSize: '14px',
       fontWeight: '600',
     },
+    subtitle2: {
+      fontSize: '14px',
+      fontWeight: '400',
+    },
   },
 });
 
