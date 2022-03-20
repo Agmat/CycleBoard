@@ -1,6 +1,8 @@
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import styled from 'styled-components';
 
+import { AddCaption } from '@/style/globalStyle';
+
 export const Wrapper = styled.div<{ $isClosed: boolean }>`
   width: 270px;
   display: flex;
@@ -57,26 +59,5 @@ export const CardsWrapper = styled.div`
 `;
 
 export const AddCard = styled.div`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  border-radius: 4px;
-  gap: ${(props) => props.theme.spacing(0.5)};
-
-  padding: ${(props) => props.theme.spacing(0.25)} ${(props) => props.theme.spacing(0.5)};
-
-  > * {
-    color: #707070;
-  }
-
-  svg {
-    font-size: 12px;
-  }
-
-  &:hover {
-    background-color: #e6e6e6;
-    > * {
-      color: ${(props) => props.theme.palette.primary.main};
-    }
-  }
+  ${AddCaption}
 `;

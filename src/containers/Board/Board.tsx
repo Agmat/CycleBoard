@@ -1,3 +1,5 @@
+import AddIcon from '@mui/icons-material/Add';
+import { Typography } from '@mui/material';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
@@ -21,6 +23,12 @@ const Board = () => {
         {data.board?.groups?.map((group) => (
           <Group key={group.name} {...group} />
         ))}
+        <span>
+          <S.AddGroup>
+            <AddIcon />
+            <Typography variant="caption">New Group</Typography>
+          </S.AddGroup>
+        </span>
       </S.Groups>
     </S.Wrapper>
   );

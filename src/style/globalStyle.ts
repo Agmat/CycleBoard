@@ -16,6 +16,31 @@ export const SidebarElementBaseCSS = css`
   }
 `;
 
+export const AddCaption = css`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  gap: ${(props) => props.theme.spacing(0.5)};
+
+  padding: ${(props) => props.theme.spacing(0.25)} ${(props) => props.theme.spacing(0.5)};
+
+  > * {
+    color: #707070;
+  }
+
+  svg {
+    font-size: 12px;
+  }
+
+  &:hover {
+    background-color: #e6e6e6;
+    > * {
+      color: ${(props) => props.theme.palette.primary.main};
+    }
+  }
+`;
+
 export const SidebarElement = styled.div`
   ${SidebarElementBaseCSS}
 `;
