@@ -16,6 +16,7 @@ const BoardLink = ({ name, icon }: Board) => {
       <Typography variant="subtitle2" color="secondary">
         {name}
       </Typography>
+      <S.MoreIcon />
     </S.StyledLink>
   );
 };

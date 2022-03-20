@@ -1,4 +1,4 @@
-import { getContrastRatio, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 import React from 'react';
 
 import { useGetCardQuery } from '@/graphql/generated';
@@ -11,6 +11,7 @@ const Card = ({ id }: { id: string }) => {
   if (!data) return null;
   return (
     <S.Wrapper>
+      <S.MoreIcon />
       <Typography variant="body1">{data.card?.description}</Typography>
       <S.TagWrapper>
         {data.card?.tags?.map((tag) => (
