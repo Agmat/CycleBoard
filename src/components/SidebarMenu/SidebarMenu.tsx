@@ -9,7 +9,6 @@ const SidebarMenu = () => {
 
   if (!data || loading) return null;
 
-  console.log(data);
   return (
     <div>
       {data.boardMenus.map((menu) => (

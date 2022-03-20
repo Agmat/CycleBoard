@@ -8,12 +8,14 @@ const typeDefs = gql`
   }
 
   type Board {
+    id: ID!
     name: String!
     icon: String!
     groups: [Group!]
   }
 
   type Group {
+    id: ID!
     name: String!
     cards: [Card!]
   }

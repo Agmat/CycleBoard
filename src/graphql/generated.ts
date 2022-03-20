@@ -3,8 +3,12 @@ import * as Apollo from '@apollo/client';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 const defaultOptions = {} as const;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -19,6 +23,7 @@ export type Board = {
   __typename?: 'Board';
   groups?: Maybe<Array<Group>>;
   icon: Scalars['String'];
+  id: Scalars['ID'];
   name: Scalars['String'];
 };
 
@@ -32,6 +37,7 @@ export type Card = {
 export type Group = {
   __typename?: 'Group';
   cards?: Maybe<Array<Card>>;
+  id: Scalars['ID'];
   name: Scalars['String'];
 };
 
@@ -47,7 +53,6 @@ export type Query = {
   boardMenus: Array<Menu>;
 };
 
-
 export type QueryBoardArgs = {
   name: Scalars['String'];
 };
@@ -62,34 +67,46 @@ export type GetBoardGroupsQueryVariables = Exact<{
   name: Scalars['String'];
 }>;
 
-
-export type GetBoardGroupsQuery = { __typename?: 'Query', board?: { __typename?: 'Board', groups?: Array<{ __typename?: 'Group', name: string, cards?: Array<{ __typename?: 'Card', id: string }> | null }> | null } | null };
+export type GetBoardGroupsQuery = {
+  __typename?: 'Query';
+  board?: {
+    __typename?: 'Board';
+    id: string;
+    groups?: Array<{ __typename?: 'Group'; id: string; name: string }> | null;
+  } | null;
+};
 
 export type GetBoardIconQueryVariables = Exact<{
   boardName: Scalars['String'];
 }>;
 
+export type GetBoardIconQuery = {
+  __typename?: 'Query';
+  board?: { __typename?: 'Board'; id: string; icon: string } | null;
+};
 
-export type GetBoardIconQuery = { __typename?: 'Query', board?: { __typename?: 'Board', icon: string } | null };
+export type GetBoardsNameQueryVariables = Exact<{ [key: string]: never }>;
 
-export type GetBoardsNameQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-export type GetBoardsNameQuery = { __typename?: 'Query', boardMenus: Array<{ __typename?: 'Menu', name: string, boards?: Array<{ __typename?: 'Board', name: string, icon: string }> | null }> };
-
+export type GetBoardsNameQuery = {
+  __typename?: 'Query';
+  boardMenus: Array<{
+    __typename?: 'Menu';
+    name: string;
+    boards?: Array<{ __typename?: 'Board'; name: string; icon: string }> | null;
+  }>;
+};
 
 export const GetBoardGroupsDocument = gql`
-    query getBoardGroups($name: String!) {
-  board(name: $name) {
-    groups {
-      name
-      cards {
+  query getBoardGroups($name: String!) {
+    board(name: $name) {
+      id
+      groups {
         id
+        name
       }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetBoardGroupsQuery__
@@ -107,24 +124,43 @@ export const GetBoardGroupsDocument = gql`
  *   },
  * });
  */
-export function useGetBoardGroupsQuery(baseOptions: Apollo.QueryHookOptions<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>(GetBoardGroupsDocument, options);
-      }
-export function useGetBoardGroupsLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>(GetBoardGroupsDocument, options);
-        }
-export type GetBoardGroupsQueryHookResult = ReturnType<typeof useGetBoardGroupsQuery>;
-export type GetBoardGroupsLazyQueryHookResult = ReturnType<typeof useGetBoardGroupsLazyQuery>;
-export type GetBoardGroupsQueryResult = Apollo.QueryResult<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>;
-export const GetBoardIconDocument = gql`
-    query getBoardIcon($boardName: String!) {
-  board(name: $boardName) {
-    icon
-  }
+export function useGetBoardGroupsQuery(
+  baseOptions: Apollo.QueryHookOptions<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>(
+    GetBoardGroupsDocument,
+    options,
+  );
 }
-    `;
+export function useGetBoardGroupsLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetBoardGroupsQuery,
+    GetBoardGroupsQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetBoardGroupsQuery, GetBoardGroupsQueryVariables>(
+    GetBoardGroupsDocument,
+    options,
+  );
+}
+export type GetBoardGroupsQueryHookResult = ReturnType<typeof useGetBoardGroupsQuery>;
+export type GetBoardGroupsLazyQueryHookResult = ReturnType<
+  typeof useGetBoardGroupsLazyQuery
+>;
+export type GetBoardGroupsQueryResult = Apollo.QueryResult<
+  GetBoardGroupsQuery,
+  GetBoardGroupsQueryVariables
+>;
+export const GetBoardIconDocument = gql`
+  query getBoardIcon($boardName: String!) {
+    board(name: $boardName) {
+      id
+      icon
+    }
+  }
+`;
 
 /**
  * __useGetBoardIconQuery__
@@ -142,28 +178,44 @@ export const GetBoardIconDocument = gql`
  *   },
  * });
  */
-export function useGetBoardIconQuery(baseOptions: Apollo.QueryHookOptions<GetBoardIconQuery, GetBoardIconQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetBoardIconQuery, GetBoardIconQueryVariables>(GetBoardIconDocument, options);
-      }
-export function useGetBoardIconLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetBoardIconQuery, GetBoardIconQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetBoardIconQuery, GetBoardIconQueryVariables>(GetBoardIconDocument, options);
-        }
+export function useGetBoardIconQuery(
+  baseOptions: Apollo.QueryHookOptions<GetBoardIconQuery, GetBoardIconQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetBoardIconQuery, GetBoardIconQueryVariables>(
+    GetBoardIconDocument,
+    options,
+  );
+}
+export function useGetBoardIconLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetBoardIconQuery,
+    GetBoardIconQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetBoardIconQuery, GetBoardIconQueryVariables>(
+    GetBoardIconDocument,
+    options,
+  );
+}
 export type GetBoardIconQueryHookResult = ReturnType<typeof useGetBoardIconQuery>;
 export type GetBoardIconLazyQueryHookResult = ReturnType<typeof useGetBoardIconLazyQuery>;
-export type GetBoardIconQueryResult = Apollo.QueryResult<GetBoardIconQuery, GetBoardIconQueryVariables>;
+export type GetBoardIconQueryResult = Apollo.QueryResult<
+  GetBoardIconQuery,
+  GetBoardIconQueryVariables
+>;
 export const GetBoardsNameDocument = gql`
-    query getBoardsName {
-  boardMenus {
-    name
-    boards {
+  query getBoardsName {
+    boardMenus {
       name
-      icon
+      boards {
+        name
+        icon
+      }
     }
   }
-}
-    `;
+`;
 
 /**
  * __useGetBoardsNameQuery__
@@ -180,14 +232,32 @@ export const GetBoardsNameDocument = gql`
  *   },
  * });
  */
-export function useGetBoardsNameQuery(baseOptions?: Apollo.QueryHookOptions<GetBoardsNameQuery, GetBoardsNameQueryVariables>) {
-        const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetBoardsNameQuery, GetBoardsNameQueryVariables>(GetBoardsNameDocument, options);
-      }
-export function useGetBoardsNameLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetBoardsNameQuery, GetBoardsNameQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetBoardsNameQuery, GetBoardsNameQueryVariables>(GetBoardsNameDocument, options);
-        }
+export function useGetBoardsNameQuery(
+  baseOptions?: Apollo.QueryHookOptions<GetBoardsNameQuery, GetBoardsNameQueryVariables>,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useQuery<GetBoardsNameQuery, GetBoardsNameQueryVariables>(
+    GetBoardsNameDocument,
+    options,
+  );
+}
+export function useGetBoardsNameLazyQuery(
+  baseOptions?: Apollo.LazyQueryHookOptions<
+    GetBoardsNameQuery,
+    GetBoardsNameQueryVariables
+  >,
+) {
+  const options = { ...defaultOptions, ...baseOptions };
+  return Apollo.useLazyQuery<GetBoardsNameQuery, GetBoardsNameQueryVariables>(
+    GetBoardsNameDocument,
+    options,
+  );
+}
 export type GetBoardsNameQueryHookResult = ReturnType<typeof useGetBoardsNameQuery>;
-export type GetBoardsNameLazyQueryHookResult = ReturnType<typeof useGetBoardsNameLazyQuery>;
-export type GetBoardsNameQueryResult = Apollo.QueryResult<GetBoardsNameQuery, GetBoardsNameQueryVariables>;
+export type GetBoardsNameLazyQueryHookResult = ReturnType<
+  typeof useGetBoardsNameLazyQuery
+>;
+export type GetBoardsNameQueryResult = Apollo.QueryResult<
+  GetBoardsNameQuery,
+  GetBoardsNameQueryVariables
+>;
