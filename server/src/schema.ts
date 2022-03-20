@@ -19,6 +19,7 @@ const typeDefs = gql`
   }
 
   type Card {
+    id: ID!
     description: String!
     tags: [Tag!]
   }

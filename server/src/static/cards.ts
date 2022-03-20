@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker';
 
 export const cards = [
   {
+    id: 1,
     description: faker.lorem.paragraphs(),
     tags: [
       { text: '🦋' },
@@ -12,6 +13,7 @@ export const cards = [
     ],
   },
   {
+    id: 2,
     description: faker.lorem.paragraphs(),
     tags: [
       { text: '🐶' },
@@ -22,6 +24,7 @@ export const cards = [
     ],
   },
   {
+    id: 3,
     description: faker.lorem.paragraphs(),
     tags: [
       { text: '⛄' },

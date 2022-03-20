@@ -1,23 +1,10 @@
-import { cards } from './cards';
+import groups from './groups';
 
 const boards = [
   {
     icon: '🎨',
     name: 'Design',
-    groups: [
-      {
-        name: '🖼️ Framing',
-        cards: [cards[0]],
-      },
-      {
-        name: '🎨 In Design',
-        cards: [cards[1]],
-      },
-      {
-        name: '✏️ In Review',
-        cards: [cards[2]],
-      },
-    ],
+    groups,
   },
   {
     icon: '🦊',

@@ -1,0 +1,10 @@
+query getBoardGroups($name: String!) {
+    board(name: $name) {
+        groups {
+            name
+            cards {
+                id
+            }
+        }
+    }
+}
