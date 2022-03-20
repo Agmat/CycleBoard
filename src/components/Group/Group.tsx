@@ -18,11 +18,11 @@ const Group = ({ name, cards }: GroupType) => {
             {name}
           </Typography>
         </S.Title>
-        <div>
+        <S.CardsWrapper>
           {cards?.map((card) => (
             <Card id={card.id} key={card.id} />
           ))}
-        </div>
+        </S.CardsWrapper>
         <S.AddCard>
           <AddIcon />
           <Typography variant="caption">New Doc</Typography>

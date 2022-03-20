@@ -15,6 +15,12 @@ export const Title = styled.div`
   gap: ${(props) => props.theme.spacing(1)};
 `;
 
+export const CardsWrapper = styled.div`
+  > *:not(:last-child) {
+    margin-bottom: ${(props) => props.theme.spacing(1)};
+  }
+`;
+
 export const AddCard = styled.div`
   display: flex;
   align-items: center;

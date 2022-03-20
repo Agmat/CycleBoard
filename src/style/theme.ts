@@ -32,7 +32,7 @@ const theme = createTheme({
     },
     caption: {
       fontSize: '12px',
-      fonWeight: 500,
+      fontWeight: 500,
     },
   },
 });
