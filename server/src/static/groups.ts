@@ -6,7 +6,7 @@ const groups = [
   {
     id: faker.datatype.uuid(),
     name: '🖼️ Framing',
-    cards: [cards[0]],
+    cards: [cards[0], cards[3], cards[4], cards[5]],
   },
   {
     id: faker.datatype.uuid(),
@@ -16,7 +16,7 @@ const groups = [
   {
     id: faker.datatype.uuid(),
     name: '✏️ In Review',
-    cards: [cards[2]],
+    cards: [cards[2], cards[6]],
   },
 ];
 
