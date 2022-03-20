@@ -1,0 +1,9 @@
+query getBoardsName {
+  boardMenus {
+    name
+    boards {
+      name
+      icon
+    }
+  }
+}

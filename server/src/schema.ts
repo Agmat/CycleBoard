@@ -4,22 +4,23 @@ const typeDefs = gql`
   # Your schema will go here
   type Menu {
     name: String!
-    boards: [Board]
+    boards: [Board!]
   }
 
   type Board {
     name: String!
-    groups: [Group]
+    icon: String!
+    groups: [Group!]
   }
 
   type Group {
     name: String!
-    cards: [Card]
+    cards: [Card!]
   }
 
   type Card {
     description: String!
-    tags: [Tag]
+    tags: [Tag!]
   }
 
   type Tag {
@@ -28,7 +29,7 @@ const typeDefs = gql`
   }
 
   type Query {
-    boardMenus: [Menu]
+    boardMenus: [Menu!]!
   }
 `;
 
