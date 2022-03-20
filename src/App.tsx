@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import Board from '@/container/Board';
-import Sidebar from '@/container/Sidebar';
+import Board from '@/containers/Board';
+import Sidebar from '@/containers/Sidebar';
 
 function App() {
   return (
