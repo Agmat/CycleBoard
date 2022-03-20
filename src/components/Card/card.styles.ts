@@ -3,9 +3,10 @@ import { darken } from 'polished';
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
+  overflow: hidden;
   border-radius: 6px;
-  padding: ${(props) => props.theme.spacing(1)};
   background-color: white;
+  padding: ${(props) => props.theme.spacing(1)};
 `;
 
 export const TagWrapper = styled.div`
