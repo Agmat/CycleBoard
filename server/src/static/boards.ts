@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-import groups from './groups';
+import groups, { groupWithLotsOfCards, moreGroups } from './groups';
 
 const boards = [
   {
@@ -13,11 +13,13 @@ const boards = [
     id: faker.datatype.uuid(),
     icon: '🦊',
     name: 'Feedback',
+    groups: [...groups, ...moreGroups],
   },
   {
     id: faker.datatype.uuid(),
     icon: '🖥️',
     name: 'Roadmap Tech',
+    groups: groupWithLotsOfCards,
   },
   {
     id: faker.datatype.uuid(),
@@ -28,6 +30,7 @@ const boards = [
     id: faker.datatype.uuid(),
     icon: '⚛️',
     name: 'Improvements',
+    groups: [...groups, ...groupWithLotsOfCards, ...moreGroups],
   },
   {
     id: faker.datatype.uuid(),
