@@ -6,7 +6,7 @@ import Sidebar from '@/containers/Sidebar';
 
 function App() {
   return (
-    <div style={{ display: 'flex' }}>
+    <div>
       <Sidebar />
       <Routes>
         <Route path="*" element={<Board />} />

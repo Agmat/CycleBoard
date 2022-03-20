@@ -3,7 +3,10 @@ import styled from 'styled-components';
 import { AddCaption } from '@/style/globalStyle';
 
 export const Wrapper = styled.div`
-  flex: 1;
+  height: 100vh;
+  overflow-y: hidden;
+  margin-left: 240px;
+  transition: margin-left 0.35s linear;
   padding: ${(props) => props.theme.spacing(2)} ${(props) => props.theme.spacing(4)};
 `;
 

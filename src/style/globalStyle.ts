@@ -18,9 +18,10 @@ export const SidebarElementBaseCSS = css`
 
 export const AddCaption = css`
   display: flex;
-  align-items: center;
   cursor: pointer;
   border-radius: 4px;
+  align-items: center;
+  white-space: nowrap;
   gap: ${(props) => props.theme.spacing(0.5)};
 
   padding: ${(props) => props.theme.spacing(0.25)} ${(props) => props.theme.spacing(0.5)};

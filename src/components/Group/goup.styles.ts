@@ -14,6 +14,7 @@ export const Wrapper = styled.div<{ $isClosed: boolean }>`
   overflow: hidden;
 
   transition: all 0.35s ease;
+  max-height: calc(100vh - 64px - 16px);
 
   ${(props) =>
     props.$isClosed &&
@@ -53,6 +54,8 @@ export const CollapseIcon = styled(ArrowDropDownIcon)`
 `;
 
 export const CardsWrapper = styled.div`
+  overflow-y: auto;
+  border-radius: 6px;
   > *:not(:last-child) {
     margin-bottom: ${(props) => props.theme.spacing(1)};
   }

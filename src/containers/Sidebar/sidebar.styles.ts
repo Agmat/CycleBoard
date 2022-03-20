@@ -6,12 +6,13 @@ import {
   Wrapper as CollapseWrapper,
 } from '@/components/CollapseSidebar/collapsesidebar.styles';
 import { Wrapper as SidebarHeaderWrapper } from '@/components/SidebarHeader/sidebarheader.styles';
+import { Wrapper as BoardWrapper } from '@/containers/Board/board.styles';
 
 export const Wrapper = styled.div`
   width: 240px;
   height: 100vh;
+  position: fixed;
   max-height: 100vh;
-  position: relative;
   background-color: ${(props) => props.theme.palette.primary.main};
   padding: ${(props) => props.theme.spacing(2)};
 
@@ -35,6 +36,10 @@ export const Divider = styled.div`
 `;
 
 export const CollapsedOverride = createGlobalStyle`
+  ${BoardWrapper} {
+    margin-left: 64px;
+  }
+
   ${SidebarHeaderWrapper} {
     flex-direction: column;
     
