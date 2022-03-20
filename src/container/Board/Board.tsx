@@ -8,7 +8,6 @@ const Board = () => {
   return (
     <S.Wrapper>
       <BoardHeader />
-      <div>OKMEC</div>
     </S.Wrapper>
   );
 };
