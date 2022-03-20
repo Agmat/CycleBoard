@@ -1,5 +1,3 @@
-import './index.css';
-
 import {
   ApolloClient,
   ApolloProvider,
@@ -12,6 +10,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
+import { GlobalLayout } from '@/style/globalStyle';
 import theme from '@/style/theme';
 
 import App from './App';
@@ -32,6 +31,7 @@ ReactDOM.render(
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
+          <GlobalLayout />
           <App />
         </ThemeProvider>
       </BrowserRouter>

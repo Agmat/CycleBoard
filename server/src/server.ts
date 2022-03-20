@@ -27,7 +27,7 @@ const boardMenu = [
       },
       {
         icon: '🦊',
-        name: 'Feedback 2.0',
+        name: 'Feedback',
       },
       {
         icon: '🖥️',

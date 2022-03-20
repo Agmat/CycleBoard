@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { createGlobalStyle, css } from 'styled-components';
 
 // Split because sometime we want to have a SidebarElement that's not a div
 export const SidebarElementBaseCSS = css`
@@ -18,4 +18,10 @@ export const SidebarElementBaseCSS = css`
 
 export const SidebarElement = styled.div`
   ${SidebarElementBaseCSS}
+`;
+
+export const GlobalLayout = createGlobalStyle`
+  body {
+    background-color: #E5E5E5;
+  }
 `;

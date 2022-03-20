@@ -8,8 +8,10 @@ import {
 import { Wrapper as SidebarHeaderWrapper } from '@/components/SidebarHeader/sidebarheader.styles';
 
 export const Wrapper = styled.div`
-  position: relative;
   width: 240px;
+  height: 100vh;
+  max-height: 100vh;
+  position: relative;
   background-color: ${(props) => props.theme.palette.primary.main};
   padding: ${(props) => props.theme.spacing(2)};
 
