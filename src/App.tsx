@@ -11,8 +11,7 @@ function App() {
     <div style={{ display: 'flex' }}>
       <Sidebar />
       <Routes>
-        <Route path="/" element={<Board />} />
-        <Route path="/Design" element={<Board />} />
+        <Route path="*" element={<Board />} />
       </Routes>
     </div>
   );

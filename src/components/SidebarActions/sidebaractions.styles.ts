@@ -25,7 +25,7 @@ export const EndAdornment = styled.div`
   }
 `;
 
-export const ActionWrapper = styled(GS.SidbarElement)`
+export const ActionWrapper = styled(GS.SidebarElement)`
   display: flex;
 
   &:hover {

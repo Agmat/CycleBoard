@@ -4,7 +4,6 @@ import CollapseSidebar from '@/components/CollapseSidebar';
 import SidebarActions from '@/components/SidebarActions';
 import SidebarHeader from '@/components/SidebarHeader';
 import SidebarMenu from '@/components/SidebarMenu';
-import * as GS from '@/style/globalStyle';
 
 import * as S from './sidebar.styles';
 
@@ -14,7 +13,7 @@ const Sidebar = () => {
   return (
     <S.Wrapper>
       <CollapseSidebar setCollapsed={setCollapsed} />
-      {collapsed ? <GS.CollapsedOverride /> : null}
+      {collapsed ? <S.CollapsedOverride /> : null}
       <SidebarHeader />
       <S.Divider />
       <SidebarActions />

@@ -11,6 +11,8 @@ export const StyledLink = styled(Link)<{ $isCurrentPage: boolean }>`
   text-decoration: none;
   gap: ${(props) => props.theme.spacing(1.5)};
   padding-left: ${(props) => props.theme.spacing(3.5)};
+  
+  transition: padding-left .35s ease;
 
   ${(props) =>
     props.$isCurrentPage &&

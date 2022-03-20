@@ -10,14 +10,14 @@ import * as S from './sidebarheader.styles';
 const SidebarHeader = () => {
   return (
     <S.Wrapper>
-      <GS.SidbarElement>
+      <GS.SidebarElement>
         <Logo />
         <Typography variant="h6" color="white">
           Cycle
         </Typography>
         <KeyboardArrowDownIcon color="secondary" />
-      </GS.SidbarElement>
-      <GS.SidbarElement>
+      </GS.SidebarElement>
+      <GS.SidebarElement>
         <S.Avatar
           width="18"
           height="18"
@@ -25,7 +25,7 @@ const SidebarHeader = () => {
           src="https://avatars.githubusercontent.com/u/14357997?v=4"
         />
         <KeyboardArrowDownIcon color="secondary" />
-      </GS.SidbarElement>
+      </GS.SidebarElement>
     </S.Wrapper>
   );
 };
