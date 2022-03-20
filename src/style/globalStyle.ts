@@ -22,6 +22,6 @@ export const SidebarElement = styled.div`
 
 export const GlobalLayout = createGlobalStyle`
   body {
-    background-color: #E5E5E5;
+    background-color: #f7f7f7;
   }
 `;
