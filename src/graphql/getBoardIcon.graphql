@@ -1,0 +1,5 @@
+query getBoardIcon($boardName: String!) {
+    board(name: $boardName) {
+        icon
+    }
+}

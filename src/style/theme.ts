@@ -13,6 +13,9 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: 'Inter',
+    h5: {
+      fontWeight: '600',
+    },
     h6: {
       fontSize: '15px',
     },
