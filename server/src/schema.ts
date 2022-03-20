@@ -30,6 +30,7 @@ const typeDefs = gql`
 
   type Query {
     boardMenus: [Menu!]!
+    board(name: String!): Board
   }
 `;
 
