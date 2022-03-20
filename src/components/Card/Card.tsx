@@ -8,8 +8,6 @@ import * as S from './card.styles';
 const Card = ({ id }: { id: string }) => {
   const { data } = useGetCardQuery({ variables: { id } });
 
-  console.log(getContrastRatio('#E2E6FD', '#E2E6FD'));
-
   if (!data) return null;
   return (
     <S.Wrapper>

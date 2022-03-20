@@ -13,7 +13,6 @@ const Board = () => {
   const { data } = useGetBoardGroupsQuery({ variables: { name: currentBoardName } });
 
   if (!data) return null;
-  console.log(data);
 
   return (
     <S.Wrapper>
