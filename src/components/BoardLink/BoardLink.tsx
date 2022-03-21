@@ -7,7 +7,7 @@ import { Board } from '@/graphql/generated';
 
 import * as S from './boardlink.styles';
 
-const BoardLink = ({ name, icon }: Board) => {
+const BoardLink = ({ name, icon }: Omit<Board, 'id'>) => {
   const match = useMatch(slugify(name));
 
   return (
