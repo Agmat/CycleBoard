@@ -1,0 +1,8 @@
+{
+  "packages": [
+    ".",
+    "./server"
+  ],
+  "npmClient": "pnpm",
+  "version": "0.0.0"
+}
